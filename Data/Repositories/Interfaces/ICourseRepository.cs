@@ -8,9 +8,9 @@ public interface ICourseRepository
 
     Task<IEnumerable<Course>> GetAll();
 
-    Task Create(Course course);
+    Task<Course> Create(Course course);
 
-    Task Update(Course course);
+    Task<Course> Update(Course course);
 
     Task Delete(int id);
 }

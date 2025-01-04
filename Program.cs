@@ -2,6 +2,7 @@ using Courses.GraphQL.Data.Context;
 using Courses.GraphQL.Data.Repositories;
 using Courses.GraphQL.Data.Repositories.Interfaces;
 using Courses.GraphQL.GraphQL;
+using Courses.GraphQL.GraphQL.Mutations;
 using Courses.GraphQL.GraphQL.Queries;
 using GraphQL;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,7 @@ builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddGraphQL(b => b.AddSystemTextJson());
 
 builder.Services.AddScoped<CourseQuery>();
+builder.Services.AddScoped<CourseMutation>();
 builder.Services.AddScoped<AppSchema>();
 
 var app = builder.Build();

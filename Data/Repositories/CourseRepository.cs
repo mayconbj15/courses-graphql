@@ -14,9 +14,13 @@ public class CourseRepository : ICourseRepository
         _context = context;
     }
 
-    public Task Create(Course course)
+    public async Task<Course> Create(Course course)
     {
-        throw new NotImplementedException();
+        await _context.Courses.AddAsync(course);
+
+        await _context.SaveChangesAsync();
+
+        return course;
     }
 
     public Task Delete(int id)
@@ -34,7 +38,7 @@ public class CourseRepository : ICourseRepository
         return _context.Courses;
     }
 
-    public Task Update(Course course)
+    public Task<Course> Update(Course course)
     {
         throw new NotImplementedException();
     }
