@@ -16,7 +16,7 @@ public class CourseMutation : ObjectGraphType
             .Description("Course input parameter")
             .ResolveAsync(async (ctx) =>
                 await repository.Create(ctx.GetArgument<Course>("course"))
-            );
+        );
 
         Field<CourseType>("updateCourse")
             .Description("Is used to update a new course to the database")
@@ -31,6 +31,14 @@ public class CourseMutation : ObjectGraphType
 
                 return course;
             }
-            );
+        );
+
+        Field<CourseType>("deleteCourse")
+           .Description("Is used to delete a new course to the database")
+           .Argument<NonNullGraphType<IdGraphType>>("id", "Course id")
+           .Description("Course input parameter")
+           .ResolveAsync(async (ctx) =>
+                await repository.Delete(ctx.GetArgument<int>("id"))
+        );
     }
 }

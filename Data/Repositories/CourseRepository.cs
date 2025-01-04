@@ -23,9 +23,14 @@ public class CourseRepository : ICourseRepository
         return course;
     }
 
-    public Task Delete(int id)
+    public async Task<Course> Delete(int id)
     {
-        throw new NotImplementedException();
+        var course = new Course { Id = id };
+        _context.Courses.Remove(new Course { Id = id });
+
+        await _context.SaveChangesAsync();
+
+        return course;
     }
 
     public async Task<Course> Get(int id)

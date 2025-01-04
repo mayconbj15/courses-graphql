@@ -12,5 +12,5 @@ public interface ICourseRepository
 
     Task<Course> Update(Course course);
 
-    Task Delete(int id);
+    Task<Course> Delete(int id);
 }
