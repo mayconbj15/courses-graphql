@@ -14,7 +14,7 @@ public class CourseRepository : ICourseRepository
         _context = context;
     }
 
-    public async Task<Course> Create(Course course)
+    public async Task<Course> CreateAsync(Course course)
     {
         await _context.Courses.AddAsync(course);
 
@@ -23,7 +23,7 @@ public class CourseRepository : ICourseRepository
         return course;
     }
 
-    public async Task<Course> Delete(int id)
+    public async Task<Course> DeleteAsync(int id)
     {
         var course = new Course { Id = id };
         _context.Courses.Remove(new Course { Id = id });
@@ -33,17 +33,17 @@ public class CourseRepository : ICourseRepository
         return course;
     }
 
-    public async Task<Course> Get(int id)
+    public async Task<Course> FetchAsync(int id)
     {
         return await _context.Courses.FirstOrDefaultAsync(c => c.Id == id);
     }
 
-    public async Task<IEnumerable<Course>> GetAll()
+    public async Task<IEnumerable<Course>> FetchAllAsync()
     {
         return _context.Courses;
     }
 
-    public async Task<Course> Update(Course course)
+    public async Task<Course> UpdateAsync(Course course)
     {
         _context.Courses.Update(course);
 

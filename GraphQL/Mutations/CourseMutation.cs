@@ -15,7 +15,7 @@ public class CourseMutation : ObjectGraphType
             .Argument<NonNullGraphType<CourseInputType>>("course", "Course input parameter")
             .Description("Course input parameter")
             .ResolveAsync(async (ctx) =>
-                await repository.Create(ctx.GetArgument<Course>("course"))
+                await repository.CreateAsync(ctx.GetArgument<Course>("course"))
         );
 
         Field<CourseType>("updateCourse")
@@ -27,7 +27,7 @@ public class CourseMutation : ObjectGraphType
             {
                 var course = ctx.GetArgument<Course>("course");
                 course.Id = ctx.GetArgument<int>("id");
-                await repository.Update(ctx.GetArgument<Course>("course"));
+                await repository.UpdateAsync(ctx.GetArgument<Course>("course"));
 
                 return course;
             }
@@ -38,7 +38,7 @@ public class CourseMutation : ObjectGraphType
            .Argument<NonNullGraphType<IdGraphType>>("id", "Course id")
            .Description("Course input parameter")
            .ResolveAsync(async (ctx) =>
-                await repository.Delete(ctx.GetArgument<int>("id"))
+                await repository.DeleteAsync(ctx.GetArgument<int>("id"))
         );
     }
 }

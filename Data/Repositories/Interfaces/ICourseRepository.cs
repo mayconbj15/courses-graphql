@@ -4,13 +4,13 @@ namespace Courses.GraphQL.Data.Repositories.Interfaces;
 
 public interface ICourseRepository
 {
-    Task<Course> Get(int id);
+    Task<Course> FetchAsync(int id);
 
-    Task<IEnumerable<Course>> GetAll();
+    Task<IEnumerable<Course>> FetchAllAsync();
 
-    Task<Course> Create(Course course);
+    Task<Course> CreateAsync(Course course);
 
-    Task<Course> Update(Course course);
+    Task<Course> UpdateAsync(Course course);
 
-    Task<Course> Delete(int id);
+    Task<Course> DeleteAsync(int id);
 }

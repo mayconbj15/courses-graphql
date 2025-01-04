@@ -11,11 +11,11 @@ public class CourseQuery : ObjectGraphType
     {
         Field<ListGraphType<CourseType>>("courses")
             .Description("Returns the list of courses")
-            .ResolveAsync(async (ctx) => await repository.GetAll());
+            .ResolveAsync(async (ctx) => await repository.FetchAllAsync());
 
         Field<CourseType>("course")
            .Description("Returns a couse")
            .Argument<NonNullGraphType<IntGraphType>>("id")
-           .ResolveAsync(async (ctx) => await repository.Get(ctx.GetArgument<int>("id")));
+           .ResolveAsync(async (ctx) => await repository.FetchAsync(ctx.GetArgument<int>("id")));
     }
 }
