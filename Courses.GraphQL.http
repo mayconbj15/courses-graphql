@@ -1,0 +1,6 @@
+@Courses.GraphQL_HostAddress = http://localhost:5229
+
+GET {{Courses.GraphQL_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
