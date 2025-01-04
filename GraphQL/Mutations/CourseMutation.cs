@@ -12,14 +12,25 @@ public class CourseMutation : ObjectGraphType
     {
         Field<CourseType>("addCourse")
             .Description("Is used to add a new course to the database")
-            .Argument<NonNullGraphType<CourseInputType>>("course")
+            .Argument<NonNullGraphType<CourseInputType>>("course", "Course input parameter")
+            .Description("Course input parameter")
+            .ResolveAsync(async (ctx) =>
+                await repository.Create(ctx.GetArgument<Course>("course"))
+            );
+
+        Field<CourseType>("updateCourse")
+            .Description("Is used to update a new course to the database")
+            .Argument<NonNullGraphType<IdGraphType>>("id", "Course id")
+            .Argument<NonNullGraphType<CourseInputType>>("course", "Course input parameter")
             .Description("Course input parameter")
             .ResolveAsync(async (ctx) =>
             {
                 var course = ctx.GetArgument<Course>("course");
-                await repository.Create(ctx.GetArgument<Course>("course"));
-                return course;
-            });
+                course.Id = ctx.GetArgument<int>("id");
+                await repository.Update(ctx.GetArgument<Course>("course"));
 
+                return course;
+            }
+            );
     }
 }

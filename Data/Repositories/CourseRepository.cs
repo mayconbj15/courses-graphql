@@ -38,8 +38,12 @@ public class CourseRepository : ICourseRepository
         return _context.Courses;
     }
 
-    public Task<Course> Update(Course course)
+    public async Task<Course> Update(Course course)
     {
-        throw new NotImplementedException();
+        _context.Courses.Update(course);
+
+        await _context.SaveChangesAsync();
+
+        return course;
     }
 }

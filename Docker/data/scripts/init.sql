@@ -10,4 +10,14 @@ CREATE TABLE courses (
 INSERT INTO courses 
     (id, name, description, review)
 VALUES 
-    (0, 'English', 'English course', 10)
+    (1, 'English', 'English course', 10)
+
+INSERT INTO courses 
+    (id, name, description, review)
+VALUES 
+    (1, 'Spanish', 'Spanish course', 10)
+
+INSERT INTO courses 
+    (id, name, description, review)
+VALUES 
+    (1, 'French', 'French course', 10)
