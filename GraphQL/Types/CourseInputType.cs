@@ -13,8 +13,6 @@ public class CourseInputType : InputObjectGraphType<Course>
             .Description("Description property from the course object");
         Field<StringGraphType>("Name")
             .Description("Name property from the course object");
-        Field<IntGraphType>("Review")
-            .Description("Review property from the course object");
         Field<DateTimeGraphType>("DateAdded")
             .Description("DateAdded property from the course object");
         Field<DateTimeGraphType>("DateUpdated")

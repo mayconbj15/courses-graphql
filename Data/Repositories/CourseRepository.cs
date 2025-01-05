@@ -40,7 +40,7 @@ public class CourseRepository : ICourseRepository
 
     public async Task<IEnumerable<Course>> FetchAllAsync()
     {
-        return _context.Courses;
+        return _context.Courses.Include(c => c.Reviews);
     }
 
     public async Task<Course> UpdateAsync(Course course)

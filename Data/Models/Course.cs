@@ -22,5 +22,5 @@ public class Course
     [Column("dateupdated")]
     public DateTime DateUpdated { get; set; }
 
-    public List<Review> MyProperty { get; set; }
+    public List<Review> Reviews { get; set; }
 }
