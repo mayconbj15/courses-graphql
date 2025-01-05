@@ -41,7 +41,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseGraphQL<AppSchema>();
-app.UseGraphQLGraphiQL("/ui/grapql");
+app.UseGraphQLGraphiQL("/ui/graphql");
 
 await app.RunAsync();
 
