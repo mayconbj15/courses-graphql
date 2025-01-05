@@ -17,5 +17,8 @@ public class CourseInputType : InputObjectGraphType<Course>
             .Description("DateAdded property from the course object");
         Field<DateTimeGraphType>("DateUpdated")
             .Description("DateUpdated property from the course object");
+
+        Field<ListGraphType<ReviewInputType>>("Reviews")
+            .Description("Course reviews");
     }
 }

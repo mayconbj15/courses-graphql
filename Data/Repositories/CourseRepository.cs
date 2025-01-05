@@ -18,6 +18,11 @@ public class CourseRepository : ICourseRepository
     {
         await _context.Courses.AddAsync(course);
 
+        foreach (var review in course.Reviews)
+        {
+            review.CourseId = course.Id;
+            _context.Reviews.Add(review);
+        }
         await _context.SaveChangesAsync();
 
         return course;

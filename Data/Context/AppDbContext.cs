@@ -17,6 +17,9 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Course>().Property(c => c.Id).ValueGeneratedOnAdd();
+        modelBuilder.Entity<Review>().Property(c => c.Id).ValueGeneratedOnAdd();
+
         base.OnModelCreating(modelBuilder);
     }
 }
