@@ -6,6 +6,7 @@ namespace Courses.GraphQL.Data.Context;
 public class AppDbContext : DbContext
 {
     public DbSet<Course> Courses { get; set; }
+    public DbSet<Review> Reviews { get; set; }
 
     public AppDbContext(DbContextOptions<AppDbContext> context) : base(context)
     {

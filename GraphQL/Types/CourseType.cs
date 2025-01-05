@@ -13,8 +13,8 @@ public class CourseType : ObjectGraphType<Course>
             .Description("Description property from the course object");
         Field(x => x.Name, typeof(StringGraphType))
             .Description("Name property from the course object");
-        Field(x => x.Review, typeof(IntGraphType))
-            .Description("Review property from the course object");
+        // Field(x => x.Review, typeof(IntGraphType))
+        //     .Description("Review property from the course object");
         Field(x => x.DateAdded, typeof(DateTimeGraphType))
             .Description("DateAdded property from the course object");
         Field(x => x.DateUpdated, typeof(DateTimeGraphType))

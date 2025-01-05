@@ -16,12 +16,11 @@ public class Course
     [Column("description")]
     public string Description { get; set; }
 
-    [Column("review")]
-    public int Review { get; set; }
-
     [Column("dateadded")]
     public DateTime DateAdded { get; set; }
 
     [Column("dateupdated")]
     public DateTime DateUpdated { get; set; }
+
+    public List<Review> MyProperty { get; set; }
 }
